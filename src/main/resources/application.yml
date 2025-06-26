@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    liquibase: DEBUG
+
+spring:
+  liquibase:
+    default-schema: public
+    enabled: true
+    change-log: classpath:/db.changelog/db.changelog-master.yaml
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/translator_db
+    username: translator
+    password: translator
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
